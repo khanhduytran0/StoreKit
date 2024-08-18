@@ -6,8 +6,9 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
-unzip "$1" Payload/FallGuys.app/Frameworks/UnityFramework.framework/UnityFramework
+unzip "$1" Payload/FallGuys.app/{Frameworks/UnityFramework.framework/UnityFramework,Info.plist}
 cp .theos/obj/{libswiftCore.dylib,StoreKit.dylib} Payload/FallGuys.app/Frameworks/
+/usr/libexec/PlistBuddy -c "delete :UISupportedDevices" Payload/FallGuys.app/Info.plist
 
 install_name_tool \
   -change /usr/lib/swift/libswiftCore.dylib @executable_path/Frameworks/libswiftCore.dylib \
