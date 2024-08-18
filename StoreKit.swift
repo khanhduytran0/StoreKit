@@ -504,3 +504,14 @@ public func fun101() -> Int {
     return 0
 }
 
+public enum AppDistributor {
+  public static var current: AppDistributor {
+    get async throws {
+      marketplace("io.altstore.AltStore")
+    }
+  }
+  case appStore
+  case testFlight
+  case marketplace(String)
+  case other
+}
