@@ -1,5 +1,6 @@
 TARGET := iphone:clang:latest:16.0
 ARCHS = arm64
+STRIP = 0
 include $(THEOS)/makefiles/common.mk
 
 LIBRARY_NAME = libswiftCoreFake libswiftCore StoreKit
